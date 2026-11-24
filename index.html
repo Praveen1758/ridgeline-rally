@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#181a1c" />
+    <title>Ridgeline Rally</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="pixi-legacy.min.js"></script>
+    <script defer src="art.js"></script>
+    <script defer src="game.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="bar">
+        <a class="brand" href="./" aria-label="Ridgeline Rally home"
+          ><canvas id="logo" width="52" height="34"></canvas
+          ><span>RIDGELINE<em>RALLY</em></span></a
+        >
+        <nav aria-label="Game navigation">
+          <button id="raceTab" class="active"><i data-i="flag"></i>Race</button
+          ><button id="garageTab"><i data-i="wrench"></i>Garage</button
+          ><button id="tracksTab"><i data-i="map"></i>Tracks</button>
+        </nav>
+        <div class="tools">
+          <button id="audio" title="Toggle sound" aria-label="Mute sound">
+            <i data-i="sound"></i></button
+          ><button id="help" title="How to play" aria-label="How to play">
+            <i data-i="help"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="heading">
+        <div>
+          <div class="eyebrow">
+            <span class="stage-bars">▰▰▰</span
+            ><span id="stageNo">STAGE 01</span>
+          </div>
+          <h1 id="stageTitle">Copper Canyon</h1>
+        </div>
+        <div class="record">
+          <i data-i="trophy"></i>
+          <div>
+            <small>PERSONAL BEST</small
+            ><b><span id="best">0</span> <span class="unit">m</span></b>
+          </div>
+        </div>
+      </div>
+      <section class="console" aria-label="Race">
+        <div class="screen" id="screen">
+          <div id="world"></div>
+          <div class="hud">
+            <div class="hudbox">
+              <i data-i="distance"></i>
+              <div>
+                <small>DISTANCE</small
+                ><b><span id="distance">0</span><em> m</em></b>
+              </div>
+            </div>
+            <div class="hudbox fuel">
+              <i data-i="fuel"></i>
+              <div>
+                <small>FUEL</small>
+                <div
+                  id="fuelmeter"
+                  role="meter"
+                  aria-label="Fuel"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  aria-valuenow="100"
+                ></div>
+              </div>
+            </div>
+            <div class="hudbox money">
+              <span class="coin"></span><b id="coins">0</b>
+            </div>
+          </div>
+          <div class="feedback" id="feedback" role="status"></div>
+        </div>
+        <div class="deck">
+          <div class="pedal-block">
+            <button
+              id="brake"
+              class="pedal"
+              aria-label="Hold brake or lean forward"
+            >
+              <span class="key">←</span><span>BRAKE</span>
+            </button>
+          </div>
+          <button class="mainbtn" id="action">
+            <i data-i="play"></i><span>START ENGINE</span>
+          </button>
+          <div class="pedal-block">
+            <button id="gas" class="pedal" aria-label="Hold gas or lean back">
+              <span>GAS</span><span class="key">→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      <div class="under">
+        <div class="controls">
+          <span class="underlabel"><i data-i="keyboard"></i>CONTROLS</span
+          ><span><kbd>←</kbd><kbd>→</kbd> Brake / Gas</span
+          ><span><kbd>P</kbd> Pause</span><span><kbd>R</kbd> Restart</span>
+        </div>
+        <div class="vehicle"><i data-i="car"></i> Rally pickup</div>
+      </div>
+    </main>
+    <dialog id="modal">
+      <div class="modalHead">
+        <h2 id="modalTitle"></h2>
+        <button id="close" aria-label="Close">×</button>
+      </div>
+      <div id="modalBody"></div>
+    </dialog>
+  </body>
+</html>
